@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 3975948751285628508}
   - component: {fileID: 2253669957875171519}
   - component: {fileID: 1521299057888278511}
+  - component: {fileID: 7390649274473120232}
   m_Layer: 5
   m_Name: BuyPown
   m_TagString: Untagged
@@ -403,6 +404,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickedImage: {fileID: 21300000, guid: 4621832db8a198d498f0719b0dc24d6a, type: 3}
+--- !u!114 &7390649274473120232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2799360669692667000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c45611b421976f04884eba1d351fbd33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  createUnit: {fileID: 8416612997942713649, guid: 73e461223090c2b4fbf128a4536810c6, type: 3}
 --- !u!1 &3249258903332335799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1112,6 +1126,7 @@ GameObject:
   - component: {fileID: 4664590264102214604}
   - component: {fileID: 6446095147037537549}
   - component: {fileID: 6783165939882547041}
+  - component: {fileID: 2536204581737718306}
   m_Layer: 5
   m_Name: BuyWarrior
   m_TagString: Untagged
@@ -1234,6 +1249,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickedImage: {fileID: 21300000, guid: 4621832db8a198d498f0719b0dc24d6a, type: 3}
+--- !u!114 &2536204581737718306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6069406906064157814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c45611b421976f04884eba1d351fbd33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  createUnit: {fileID: 8416612997942713649, guid: 73e461223090c2b4fbf128a4536810c6, type: 3}
 --- !u!1 &7891184924204478874
 GameObject:
   m_ObjectHideFlags: 0
@@ -1489,6 +1517,7 @@ GameObject:
   - component: {fileID: 1135740923590365462}
   - component: {fileID: 8625122671368057867}
   - component: {fileID: 4268696275518231138}
+  - component: {fileID: 6737453824030392038}
   m_Layer: 5
   m_Name: BuyArcher
   m_TagString: Untagged
@@ -1611,3 +1640,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickedImage: {fileID: 21300000, guid: 4621832db8a198d498f0719b0dc24d6a, type: 3}
+--- !u!114 &6737453824030392038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8907858844880630692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c45611b421976f04884eba1d351fbd33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  createUnit: {fileID: 8416612997942713649, guid: 73e461223090c2b4fbf128a4536810c6, type: 3}
