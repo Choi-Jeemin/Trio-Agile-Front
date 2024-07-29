@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestHous : MonoBehaviour
+public class HouseController : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -18,6 +18,6 @@ public class TestHous : MonoBehaviour
 
     private void OnMouseDown()
     {
-        FindAnyObjectByType<HouseManager>().ClickHouse(gameObject);
+        FindAnyObjectByType<HouseUIManager>().ClickHouse(gameObject);
     }
 }
