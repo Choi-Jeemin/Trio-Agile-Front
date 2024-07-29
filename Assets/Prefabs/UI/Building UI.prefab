@@ -280,6 +280,7 @@ GameObject:
   - component: {fileID: 4370958583725176997}
   - component: {fileID: 3975948751285628508}
   - component: {fileID: 2253669957875171519}
+  - component: {fileID: 1521299057888278511}
   m_Layer: 5
   m_Name: BuyPown
   m_TagString: Untagged
@@ -304,7 +305,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 45, y: -432}
+  m_AnchoredPosition: {x: 45, y: -428}
   m_SizeDelta: {x: 162.5426, y: 50.3415}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4370958583725176997
@@ -389,6 +390,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1521299057888278511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2799360669692667000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c8ee9bad155ac4990e73b60e4a0151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickedImage: {fileID: 21300000, guid: 4621832db8a198d498f0719b0dc24d6a, type: 3}
 --- !u!1 &3249258903332335799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,6 +1111,7 @@ GameObject:
   - component: {fileID: 6968582270488924875}
   - component: {fileID: 4664590264102214604}
   - component: {fileID: 6446095147037537549}
+  - component: {fileID: 6783165939882547041}
   m_Layer: 5
   m_Name: BuyWarrior
   m_TagString: Untagged
@@ -1121,7 +1136,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 405, y: -432}
+  m_AnchoredPosition: {x: 405, y: -428}
   m_SizeDelta: {x: 162.5426, y: 50.3415}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6968582270488924875
@@ -1206,6 +1221,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6783165939882547041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6069406906064157814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c8ee9bad155ac4990e73b60e4a0151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickedImage: {fileID: 21300000, guid: 4621832db8a198d498f0719b0dc24d6a, type: 3}
 --- !u!1 &7891184924204478874
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,7 +1381,7 @@ GameObject:
   - component: {fileID: 3880764649709660878}
   - component: {fileID: 3629995991900859694}
   m_Layer: 5
-  m_Name: House UI
+  m_Name: Building UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1460,6 +1488,7 @@ GameObject:
   - component: {fileID: 8424003533770501374}
   - component: {fileID: 1135740923590365462}
   - component: {fileID: 8625122671368057867}
+  - component: {fileID: 4268696275518231138}
   m_Layer: 5
   m_Name: BuyArcher
   m_TagString: Untagged
@@ -1484,7 +1513,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 765, y: -432}
+  m_AnchoredPosition: {x: 765, y: -428}
   m_SizeDelta: {x: 162.5426, y: 50.3415}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8424003533770501374
@@ -1569,3 +1598,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4268696275518231138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8907858844880630692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c8ee9bad155ac4990e73b60e4a0151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickedImage: {fileID: 21300000, guid: 4621832db8a198d498f0719b0dc24d6a, type: 3}
