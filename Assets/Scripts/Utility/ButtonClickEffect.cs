@@ -45,7 +45,7 @@ public class ButtonClickEffect : MonoBehaviour
     {
         // 현재 사진을 클릭 시 사진으로 교체.
         imageComponent.sprite = clickedImage;
-        Debug.Log("호출 되나?");
+        
         yield return new WaitForSeconds(0.1f);
 
         // 현재 사진을 평상 시 사진으로 교체.
