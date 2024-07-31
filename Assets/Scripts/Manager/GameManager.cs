@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     public NavMeshSurface surface1; // 1층 navmesh surface
     public NavMeshSurface surface2; // 2층 navmesh surface
 
+    [SerializeField]
+    private BuildingTypeSelectUI buildingTypeSelectUI;
+
     void Update()
     {
         UnitSelection();
@@ -44,6 +47,7 @@ public class GameManager : MonoBehaviour
                 {
                     GameObject selectedUnit = hit.collider.gameObject;
                     selectedUnits.Add(selectedUnit);
+                    buildingTypeSelectUI.SetBuildingAble();
                 }
             }
             else
