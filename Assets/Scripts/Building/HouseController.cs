@@ -79,5 +79,8 @@ public class HouseController : MonoBehaviour
         spawnPosition.y -= 1;
         Instantiate(nowMake, spawnPosition, Quaternion.identity);
         nowMake = null;
+
+        // 해당 건물 생성을 할 수 있는 상태를 알림.
+        FindObjectOfType<HouseManager>().AbleToBuy(gameObject);
     }
 }
