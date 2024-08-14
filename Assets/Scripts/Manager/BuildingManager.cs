@@ -32,7 +32,7 @@ public class BuildingManager : MonoBehaviour
                 Vector3 rayPos = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
                 if(CanSpawnBuilding(activeBuildingType, rayPos)&&selectedUnit!=null){
             
-                    if(CheckCost()){
+                    if(!CheckCost()){
                         Debug.Log("Not enough resources");
                         popupMessageInstance = Instantiate(popupMessage, messagePosition , Quaternion.identity, GameObject.Find("Canvas").transform);
                         Destroy(popupMessageInstance, 1.5f);
