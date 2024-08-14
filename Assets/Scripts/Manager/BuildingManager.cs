@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -11,11 +12,16 @@ public class BuildingManager : MonoBehaviour
     [SerializeField]private BuildingTypeSO activeBuildingType;
     [SerializeField]private GameManager gameManager;
     [SerializeField]private GameObject popupMessage;
-    
+    [SerializeField]private TMP_Text popUpText;
+    [SerializeField]private bool isEnough = true;
+
     private GameObject selectedUnit;
     private GameObject popupMessageInstance;
     private Transform building;
+    
     private Vector3 messagePosition = Vector3.zero;
+
+
     /// <summary>
     /// 건물을 건설할 때 마우스 왼쪽 버튼을 누르면 해당 위치에 건물을 생성
     /// </summary>
@@ -34,6 +40,7 @@ public class BuildingManager : MonoBehaviour
             
                     if(!CheckCost()){
                         Debug.Log("Not enough resources");
+                        popUpText.text = "Not enough resources";
                         popupMessageInstance = Instantiate(popupMessage, messagePosition , Quaternion.identity, GameObject.Find("Canvas").transform);
                         Destroy(popupMessageInstance, 1.5f);
                         
@@ -118,6 +125,6 @@ public class BuildingManager : MonoBehaviour
     private bool CheckCost()
     {
         //ㅁ자원 공용변수가 만들어지면 cost_meat, cost_gold, cost_wood 변수를 만들어서 scriptableObject에 저장
-        return true;
+        return isEnough;
     }
 }
