@@ -10,10 +10,12 @@ public class BuildingManager : MonoBehaviour
 {
     [SerializeField]private BuildingTypeSO activeBuildingType;
     [SerializeField]private GameManager gameManager;
-
+    [SerializeField]private GameObject popupMessage;
+    
     private GameObject selectedUnit;
+    private GameObject popupMessageInstance;
     private Transform building;
-
+    private Vector3 messagePosition = Vector3.zero;
     /// <summary>
     /// 건물을 건설할 때 마우스 왼쪽 버튼을 누르면 해당 위치에 건물을 생성
     /// </summary>
@@ -29,6 +31,15 @@ public class BuildingManager : MonoBehaviour
             {
                 Vector3 rayPos = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
                 if(CanSpawnBuilding(activeBuildingType, rayPos)&&selectedUnit!=null){
+            
+                    if(CheckCost()){
+                        Debug.Log("Not enough resources");
+                        popupMessageInstance = Instantiate(popupMessage, messagePosition , Quaternion.identity, GameObject.Find("Canvas").transform);
+                        Destroy(popupMessageInstance, 1.5f);
+                        
+                        return;
+                    }
+            
                     selectedUnit.GetComponent<IUnit>().MoveTo(rayPos);
                     Animator unitAnimator = selectedUnit.GetComponent<Animator>();
                     StartCoroutine(BuildAfterMoving(unitAnimator, rayPos));    
@@ -101,5 +112,12 @@ public class BuildingManager : MonoBehaviour
         animator.SetBool("Build", false);
     }
 
-
+    /// <summary>
+    /// 건물 건설 비용 체크
+    /// </summary>
+    private bool CheckCost()
+    {
+        //ㅁ자원 공용변수가 만들어지면 cost_meat, cost_gold, cost_wood 변수를 만들어서 scriptableObject에 저장
+        return true;
+    }
 }
