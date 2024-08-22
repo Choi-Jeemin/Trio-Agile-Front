@@ -48,10 +48,10 @@ public class GameManager : MonoBehaviour
                     GameObject selectedUnit = hit.collider.gameObject;
 
                     // 클릭을 통한 유닛 선택
-                    ToggleUnitSelection(selectedUnit);
+                    //ToggleUnitSelection(selectedUnit);
 
-                    // selectedUnits.Add(selectedUnit);
-                    
+                    selectedUnits.Add(selectedUnit);
+
                     // 다중 선택시 빌딩창 비활성화
                     if (selectedUnits.Count == 1) buildingTypeSelectUI.SetBuildingAble();
                     else buildingTypeSelectUI.SetBuildingDisable();
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 if (!EventSystem.current.IsPointerOverGameObject()){
-                    ClearSelection();
+                    //ClearSelection();
                     buildingTypeSelectUI.SetBuildingDisable();
                 }
             }
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
     {
         if (selectedUnits.Contains(unit))
         {
-            selectedUnits.Remove(unit);
+            //selectedUnits.Remove(unit);
             //SetOutlineEffect(unit, false);
         }
         else

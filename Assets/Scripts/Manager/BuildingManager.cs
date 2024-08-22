@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -14,6 +15,7 @@ public class BuildingManager : MonoBehaviour
     [SerializeField]private GameObject popupMessage;
     [SerializeField]private TMP_Text popUpText;
     [SerializeField]private bool isEnough = true;
+    [SerializeField]private LayerMask layerMask;
 
     private GameObject selectedUnit;
     private GameObject popupMessageInstance;
@@ -32,13 +34,25 @@ public class BuildingManager : MonoBehaviour
         
         if(Input.GetMouseButtonDown(0))
         {
+            Debug.Log("here");
 
             if(activeBuildingType != null && !EventSystem.current.IsPointerOverGameObject())
             {
+                Debug.Log("here2");
                 Vector3 rayPos = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
-                
+
+                if (CanSpawnBuilding(activeBuildingType, rayPos))
+                    Debug.Log("here3");
+
+                if (selectedUnit != null)
+                    Debug.Log("here4");
+
+
                 if(CanSpawnBuilding(activeBuildingType, rayPos)&&selectedUnit!=null){
-            
+
+
+                    Debug.Log("here3");
+
                     if(!CheckCost()){
                         Debug.Log("Not enough resources");
                         popUpText.text = "Not enough resources";
@@ -47,8 +61,9 @@ public class BuildingManager : MonoBehaviour
                         
                         return;
                     }
-            
-                    selectedUnit.GetComponent<IUnit>().MoveTo(rayPos);
+
+                    // TODO : GameManger에서 객체 이동을 함수화 후 실행.
+                    selectedUnit.GetComponent<IUnit>().MoveToSame(rayPos);
                     Animator unitAnimator = selectedUnit.GetComponent<Animator>();
                     StartCoroutine(BuildAfterMoving(unitAnimator, rayPos));    
                 }
@@ -83,7 +98,7 @@ public class BuildingManager : MonoBehaviour
     /// <returns></returns>
     private bool CanSpawnBuilding(BuildingTypeSO buildingTypeSO, Vector3 position){
         BoxCollider2D buildingBoxCollider2D = buildingTypeSO.prefab.GetComponent<BoxCollider2D>();
-        if(Physics2D.OverlapBox(position+(Vector3)buildingBoxCollider2D.offset, buildingBoxCollider2D.size, 0) != null){
+        if(Physics2D.OverlapBox(position+(Vector3)buildingBoxCollider2D.offset, buildingBoxCollider2D.size, 0, layerMask) != null){
             return false;
         } else {
             return true;
