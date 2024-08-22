@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
     void ClearSelection()
     {
         selectedUnits.Clear();
+        //buildingTypeSelectUI.SetBuildingDisable();
     }
 
     /// <summary>

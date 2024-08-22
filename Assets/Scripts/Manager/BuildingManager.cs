@@ -21,21 +21,22 @@ public class BuildingManager : MonoBehaviour
     
     private Vector3 messagePosition = Vector3.zero;
 
-
     /// <summary>
     /// 건물을 건설할 때 마우스 왼쪽 버튼을 누르면 해당 위치에 건물을 생성
     /// </summary>
     private void Update()
     {
+
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         selectedUnit = gameManager.getSelectedUnitOnly();
-
+        
         if(Input.GetMouseButtonDown(0))
         {
 
             if(activeBuildingType != null && !EventSystem.current.IsPointerOverGameObject())
             {
                 Vector3 rayPos = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
+                
                 if(CanSpawnBuilding(activeBuildingType, rayPos)&&selectedUnit!=null){
             
                     if(!CheckCost()){
