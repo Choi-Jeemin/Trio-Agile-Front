@@ -28,13 +28,11 @@ public class IUnit : MonoBehaviour
     //유닛이 위치하는 층 구별용
     public bool isOnFirstFloor = true;
 
-
     //애니메이션 관리를 위한 유닛 상태
     enum STATE
     {
         MOVE, IDLE, CHOP, HUNT, ATTAK, DIE
     }
-
 
     //지금 상태를 나타내는 변수
     private STATE nowState = STATE.IDLE;
@@ -51,7 +49,6 @@ public class IUnit : MonoBehaviour
         //NavMeshAgent의 z좌표 이동 및 회전을 고정.
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-
     }
 
     void Update()
@@ -72,6 +69,7 @@ public class IUnit : MonoBehaviour
             case STATE.MOVE:
                 //파라미터 Move의 값을 1000으로 설정.
                 animator.SetFloat("Move", 1000f);
+                
                 if (!agent.pathPending && (agent.remainingDistance <= 1.1f))
                 {
                     //파라미터 Move의 값을 0으로 설정.
@@ -97,6 +95,7 @@ public class IUnit : MonoBehaviour
         nowState = STATE.MOVE;
         agent.SetDestination(targetPosition); // navMesh 목적지 설정.
     }
+
     /// <summary>
     /// 2층에서 1층으로 이동할 때 사용되는 함수.
     /// </summary>
@@ -195,9 +194,6 @@ public class IUnit : MonoBehaviour
     }
 
 
-
-
-
     /// <summary>
     /// 랜더링 레이어 변경점을 유닛에 적용하는 함수.
     /// </summary>
@@ -226,8 +222,4 @@ public class IUnit : MonoBehaviour
             originRenderer.flipX = true;
         }
     }
-
-
-
-
 }

@@ -52,8 +52,6 @@ public class GameManager : MonoBehaviour
     }
 
 
-
-
     //드래그를 통해하여 다수의 유닛을 선택하는 함수 (미완성)
     void ToggleUnitSelection(GameObject unit)
     {
@@ -148,5 +146,4 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
 }
