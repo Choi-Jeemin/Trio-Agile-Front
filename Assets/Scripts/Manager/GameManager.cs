@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine.AI;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using NavMeshSurface = NavMeshPlus.Components.NavMeshSurface;
 
 
@@ -23,9 +24,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        
         UnitSelection();
         UnitMovement();
         UpdateNavMeshSurface();
+        
     }
 
     /// <summary>
@@ -47,12 +50,17 @@ public class GameManager : MonoBehaviour
                 {
                     GameObject selectedUnit = hit.collider.gameObject;
                     selectedUnits.Add(selectedUnit);
-                    buildingTypeSelectUI.SetBuildingAble();
+                    
+                    if (selectedUnits.Count == 1) buildingTypeSelectUI.SetBuildingAble();
+                    else buildingTypeSelectUI.SetBuildingDisable();
                 }
             }
             else
             {
-                ClearSelection();
+                if (!EventSystem.current.IsPointerOverGameObject()){
+                    ClearSelection();
+                    buildingTypeSelectUI.SetBuildingDisable();
+                }
             }
         }
     }
@@ -171,5 +179,24 @@ public class GameManager : MonoBehaviour
             }
         }
        
+    }
+
+    /// <summary>
+    /// 선택된 유닛을 하나만 반환하는 함수.
+    /// </summary>
+    /// <returns></returns>
+    public GameObject getSelectedUnitOnly(){
+        if(selectedUnits.Count == 1){
+            return selectedUnits[0];
+        }
+        else return null;
+    }
+
+    /// <summary>
+    /// 선택된 유닛의 개수를 반환하는 함수.
+    /// </summary>
+    /// <returns></returns>
+    public int getSelectedUnitCount(){
+        return selectedUnits.Count;
     }
 }

@@ -51,7 +51,7 @@ public class BuildingTypeSelectUI : MonoBehaviour
     private void Start(){
         
         UpdateSelectedVisual();
-//        SetBuildingDisable();
+        SetBuildingDisable();
         
     }
 
