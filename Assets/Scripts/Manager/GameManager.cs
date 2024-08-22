@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine.AI;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using NavMeshSurface = NavMeshPlus.Components.NavMeshSurface;
 using Unity.Burst.CompilerServices;
 
@@ -16,8 +17,12 @@ public class GameManager : MonoBehaviour
     public NavMeshSurface firstFloor; // 1층 navmesh surface
     public NavMeshSurface secondFloor; // 2층 navmesh surface
 
+    [SerializeField]
+    private BuildingTypeSelectUI buildingTypeSelectUI;
+
     void Update()
     {
+        
         UnitSelection();
         UnitMovement();
     }
@@ -41,12 +46,24 @@ public class GameManager : MonoBehaviour
                 if (hit.collider.CompareTag("Unit"))
                 {
                     GameObject selectedUnit = hit.collider.gameObject;
+
+                    // 클릭을 통한 유닛 선택
                     ToggleUnitSelection(selectedUnit);
+
+                    // selectedUnits.Add(selectedUnit);
+                    
+                    // 다중 선택시 빌딩창 비활성화
+                    if (selectedUnits.Count == 1) buildingTypeSelectUI.SetBuildingAble();
+                    else buildingTypeSelectUI.SetBuildingDisable();
+
                 }
             }
             else
             {
-                ClearSelection();
+                if (!EventSystem.current.IsPointerOverGameObject()){
+                    ClearSelection();
+                    buildingTypeSelectUI.SetBuildingDisable();
+                }
             }
         }
     }
@@ -86,6 +103,7 @@ public class GameManager : MonoBehaviour
             //SetOutlineEffect(unit, false);
         }
         selectedUnits.Clear();
+        //buildingTypeSelectUI.SetBuildingDisable();
     }
 
     /// <summary>
@@ -145,5 +163,24 @@ public class GameManager : MonoBehaviour
                 ClearSelection();
             }
         }
+    }
+
+    /// <summary>
+    /// 선택된 유닛을 하나만 반환하는 함수.
+    /// </summary>
+    /// <returns></returns>
+    public GameObject getSelectedUnitOnly(){
+        if(selectedUnits.Count == 1){
+            return selectedUnits[0];
+        }
+        else return null;
+    }
+
+    /// <summary>
+    /// 선택된 유닛의 개수를 반환하는 함수.
+    /// </summary>
+    /// <returns></returns>
+    public int getSelectedUnitCount(){
+        return selectedUnits.Count;
     }
 }

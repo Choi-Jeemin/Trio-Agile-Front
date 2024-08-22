@@ -13,7 +13,6 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        //Camera.main.transform.position = new Vector3(20, 9, Camera.main.transform.position.z);
         //transform.position = new Vector2(20, 9);
         //Camera.main.transform.size
         Camera.main.orthographicSize = 10.0f;
