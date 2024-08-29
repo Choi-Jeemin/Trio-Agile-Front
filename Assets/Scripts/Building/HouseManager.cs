@@ -19,7 +19,7 @@ public class HouseManager : MonoBehaviour
     [SerializeField] private Button buyArcher;
 
     // 사용자가 선택한 건물.
-    private GameObject nowHouse;
+    [SerializeField]private GameObject nowHouse;
 
     Dictionary<GameObject, bool> buttonStatus = new Dictionary<GameObject, bool>();
 

@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
                     selectedUnits.Add(selectedUnit);
 
                     // 다중 선택시 빌딩창 비활성화
-                    if (selectedUnits.Count == 1) buildingTypeSelectUI.SetBuildingAble();
+                    if (RemoveDuplicate(selectedUnits).Count == 1) buildingTypeSelectUI.SetBuildingAble();
                     else buildingTypeSelectUI.SetBuildingDisable();
 
                 }
@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// 유닛 선택 해제 함수.
     /// </summary>
-    void ClearSelection()
+    public void ClearSelection()
     {
         foreach (GameObject unit in selectedUnits)
         {
@@ -170,10 +170,23 @@ public class GameManager : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     public GameObject getSelectedUnitOnly(){
+        
         if(selectedUnits.Count == 1){
             return selectedUnits[0];
         }
         else return null;
+    }
+
+    /// <summary>
+    /// 리스트에 중복을 제거하는 함수.
+    /// </summary>
+    /// <param name="list"></param>
+    /// <returns></returns>
+    public List<GameObject> RemoveDuplicate(List<GameObject> list){
+
+        HashSet<GameObject> hashSet = new HashSet<GameObject>(list);
+        Debug.Log("hashSet : "+hashSet);
+        return new List<GameObject>(hashSet);
     }
 
     /// <summary>

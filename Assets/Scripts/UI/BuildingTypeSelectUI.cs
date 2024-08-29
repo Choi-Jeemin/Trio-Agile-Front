@@ -72,6 +72,8 @@ public class BuildingTypeSelectUI : MonoBehaviour
         foreach (BuildingTypeSO buildingTypeSO in buildingBtnDictionary.Keys)
         {
             SetActiveBtn(buildingTypeSO, false);
+            buildingBtnDictionary[buildingTypeSO].Find("selected").gameObject.SetActive(false);
+
         }
     }
 
@@ -92,13 +94,33 @@ public class BuildingTypeSelectUI : MonoBehaviour
             if(buildingBtnDictionary.ContainsKey(activeBuildingType)){                
                 buildingBtnDictionary[activeBuildingType].Find("selected").gameObject.SetActive(true);
             }
-
         }
     }
     
+    /// <summary>
+    /// 건설 버튼 활성화 여부 설정
+    /// </summary>
+    /// <param name="buildingTypeSO"></param>
+    /// <param name="active"></param>
     private void SetActiveBtn(BuildingTypeSO buildingTypeSO, bool active){
         if(buildingBtnDictionary.ContainsKey(buildingTypeSO)){
             buildingBtnDictionary[buildingTypeSO].gameObject.SetActive(active);
         }
     }
+
+    // /// <summary>
+    // /// 건물의 비용을 반환, 0번째 인덱스에는 나무, 1번째 인덱스에는 금
+    // /// </summary>
+    // /// <param name="buildingTypeSO"></param>
+    // /// <returns></returns>
+    // public List<int> GetBuildingCost(BuildingTypeSO buildingTypeSO){
+        
+    //     List<int> costList = new List<int>
+    //     {
+    //         buildingTypeSO.woodCost,
+    //         buildingTypeSO.goldCost
+    //     };
+
+    //     return costList;
+    // }
 }
